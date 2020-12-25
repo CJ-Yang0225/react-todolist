@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Helvetica;
+  background-color: #e1e1e1;
+  line-height: 1.5;
+  list-style: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.task__navbar {
+  background: #0084ff;
+}
+
+.task__navbar .navbar__tabs {
+  max-width: 650px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.task__navbar .navbar__tabs .navbar__link {
+  padding: 18px 0;
+  color: #00408b;
+  font-size: calc(12px + 2vmin);
+  text-decoration: none;
+  text-align: center;
+  font-weight: 750;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.task__navbar .navbar__tabs .navbar__link:hover {
+  color: white;
+}
+
+@media only screen and (max-width: 320px) {
+  .task__navbar .navbar__tabs .navbar__link {
+    font-size: calc(11px + 2vmin);
+  }
+}
+
+.task__navbar .navbar__tabs .navbar__link--active {
+  -webkit-box-shadow: 0 -5px 0 0 #00408b inset;
+          box-shadow: 0 -5px 0 0 #00408b inset;
+  color: white;
+}
+/*# sourceMappingURL=index.css.map */
