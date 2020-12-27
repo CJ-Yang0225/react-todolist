@@ -6,10 +6,19 @@ $gray: #c8c8c8;
 $dark-gray: #757575;
 $bg-color: #e1e1e1;
 
-body {
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+body {
   font-family: Helvetica;
   background-color: #e1e1e1;
   line-height: 1.5;
@@ -19,7 +28,7 @@ body {
 }
 
 .task__navbar {
-  background: #0084ff;
+  background: #00aeff;
   .navbar__tabs {
     max-width: 650px;
     margin: auto;
@@ -48,6 +57,68 @@ body {
     .navbar__link--active {
       box-shadow: 0 -5px 0 0 $dark-blue inset;
       color: white;
+    }
+  }
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 640px;
+  margin: 2rem auto 4.5rem;
+  padding: 0 15px;
+}
+
+
+.border-0 {
+  font-size: inherit;
+  padding: 0;
+  outline: none;
+  border: 0;
+  background-color: inherit;
+}
+
+.task__adder {
+  position: relative;
+  height: 4rem;
+  width: 100%;
+  border-radius: 0.31rem;
+  font-size: 1.5rem;
+
+  .adder__label {
+    position: absolute;
+    line-height: 1;
+    left: 2rem;
+    top: 1.2rem;
+    color: $gray;
+  }
+
+  .adder__input {
+    width: inherit;
+    height: inherit;
+    background-color: #ffffff;
+    padding: 0 0 0 4.2rem;
+    border: 2px solid $gray;
+    border-radius: inherit;
+    font: inherit;
+  }
+
+  .adder__option {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    right: 2rem;
+    top: 1.2rem;
+
+    &:hover {
+      border-radius: 50%;
+      background-color: #c8c8c8c8;
+      cursor: pointer;
+    }
+
+    &.is_expanded {
+      border-radius: 50%;
+      color: #4a90e2c8;
     }
   }
 }
