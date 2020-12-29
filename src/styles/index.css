@@ -127,4 +127,113 @@ body {
   border-radius: 50%;
   color: #4a90e2c8;
 }
+
+.task__expansion {
+  font-size: 1.2rem;
+  border: 2px solid #c8c8c8;
+  border-top: 0;
+  border-radius: 0.31rem;
+  margin-bottom: 0.5rem;
+}
+
+.task__expansion.is_expanded {
+  display: block;
+}
+
+.task__expansion .expansion__body {
+  padding: 1.5rem 3rem;
+  background-color: #f2f2f2;
+  margin: auto;
+  text-align: left;
+}
+
+.task__expansion .expansion__body .expansion__body__label {
+  display: block;
+}
+
+.task__expansion .expansion__body .expansion__body__label svg {
+  margin-right: 0.25rem;
+}
+
+.task__expansion .expansion__body .expansion__body__label .expansion__body__file {
+  margin-left: 2rem;
+}
+
+.task__expansion .expansion__body .expansion__body__label .expansion__body__file [type="file"] {
+  display: none;
+}
+
+.task__expansion .expansion__body .expansion__body__date input {
+  padding: 0.3rem 1rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border: 0px;
+  border-radius: 5px;
+  outline-color: #b3d4fc;
+}
+
+.task__expansion .expansion__body .expansion__body__date input::-webkit-calendar-picker-indicator {
+  outline: none;
+}
+
+.task__expansion .expansion__body .expansion__body__date input::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+}
+
+.task__expansion .expansion__body .expansion__body__description {
+  margin-left: 2rem;
+  width: 80%;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
+  max-width: fill-available;
+  height: 8.5rem;
+  resize: vertical;
+  border: 0;
+  border-radius: 5px;
+  outline-color: #b3d4fc;
+  padding: 0.5rem 1rem;
+}
+
+@media only screen and (max-width: 340px) {
+  .task__expansion .expansion__body {
+    padding: 1rem 0rem;
+  }
+}
+
+.task__expansion .expansion__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.task__expansion .expansion__footer button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0;
+  border-style: none;
+  outline-color: #b3d4fc;
+}
+
+.task__expansion .expansion__footer button:hover {
+  cursor: pointer;
+}
+
+.task__expansion .expansion__footer button svg {
+  margin-right: 0.25rem;
+}
+
+.task__expansion .expansion__footer .cancel--danger {
+  color: #d0021b;
+  background-color: #fff;
+}
+
+.task__expansion .expansion__footer .update--primary {
+  color: #fff;
+  background-color: #4a90e2;
+}
 /*# sourceMappingURL=index.css.map */

@@ -69,7 +69,6 @@ body {
   padding: 0 15px;
 }
 
-
 .border-0 {
   font-size: inherit;
   padding: 0;
@@ -119,6 +118,106 @@ body {
     &.is_expanded {
       border-radius: 50%;
       color: #4a90e2c8;
+    }
+  }
+}
+
+.task__expansion {
+  font-size: 1.2rem;
+  // display: none;
+  border: 2px solid $gray;
+  border-top: 0;
+  border-radius: 0.31rem;
+  margin-bottom: 0.5rem;
+
+  &.is_expanded {
+    display: block;
+  }
+
+  .expansion__body {
+    padding: 1.5rem 3rem;
+    background-color: $light-gray;
+    margin: auto;
+    text-align: left;
+
+    .expansion__body__label {
+      display: block;
+      svg {
+        margin-right: 0.25rem;
+      }
+
+      .expansion__body__file {
+        margin-left: 2rem;
+
+        [type="file"] {
+          display: none;
+        }
+      }
+    }
+
+    .expansion__body__date input {
+      padding: 0.3rem 1rem;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      border: 0px;
+      border-radius: 5px;
+      outline-color: #b3d4fc;
+
+      &::-webkit-calendar-picker-indicator {
+        outline: none;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .expansion__body__description {
+      margin-left: 2rem;
+      width: 80%;
+      max-width: fill-available;
+      height: 8.5rem;
+      resize: vertical;
+      border: 0;
+      border-radius: 5px;
+      outline-color: #b3d4fc;
+      padding: 0.5rem 1rem;
+    }
+
+    @media only screen and (max-width: 340px) {
+      padding: 1rem 0rem;
+    }
+  }
+
+  .expansion__footer {
+    display: flex;
+
+    button {
+      flex: 1 1 auto;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-radius: 0;
+      border-style: none;
+      outline-color: #b3d4fc;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      svg {
+        margin-right: 0.25rem;
+      }
+    }
+
+    .cancel--danger {
+      color: #d0021b;
+      background-color: #fff;
+    }
+
+    .update--primary {
+      color: #fff;
+      background-color: #4a90e2;
     }
   }
 }
