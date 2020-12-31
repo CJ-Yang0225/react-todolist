@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import TaskExpansion from "./TaskExpansion";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import TaskDetail from "./TaskDetail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-library.add(fas);
+const TaskAdder = () => {
+  const [isDetailExpanded, setIsDetailExpanded] = useState(false);
 
-const TaskAdder = (props) => {
-  
+  const toggleDetail = () =>
+    setIsDetailExpanded((isDetailExpanded) => !isDetailExpanded);
+
   return (
     <div className="task__adder">
       <label htmlFor="adder__input" className="adder__label border-0">
@@ -15,14 +15,14 @@ const TaskAdder = (props) => {
       </label>
       <input
         type="text"
-        className="adder__input"
         id="adder__input"
+        className="adder__input"
         placeholder="Add Task"
       />
-      <button className="adder__option border-0">
+      <button className="adder__option border-0" onClick={toggleDetail}>
         <FontAwesomeIcon icon="ellipsis-v" />
       </button>
-      <TaskExpansion /* isExpanded={props.taskOption.isExpanded} */ />
+      <TaskDetail expanded={isDetailExpanded} />
     </div>
   );
 };
