@@ -142,12 +142,29 @@ body {
 
     .expansion__body__label {
       display: block;
+
       svg {
         margin-right: 0.25rem;
       }
 
       .expansion__body__file {
         margin-left: 2rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+
+        svg {
+          background-color: $gray;
+          color: #ffffff;
+          border-radius: 4px;
+          width: 2rem;
+          height: 2rem;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $dark-blue;
+          }
+        }
 
         [type="file"] {
           display: none;
@@ -155,7 +172,7 @@ body {
       }
     }
 
-    .expansion__body__date input {
+    .expansion__body__deadline input {
       padding: 0.3rem 1rem;
       margin-left: 2rem;
       margin-bottom: 1rem;

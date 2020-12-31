@@ -157,13 +157,33 @@ body {
 
 .task__expansion .expansion__body .expansion__body__label .expansion__body__file {
   margin-left: 2rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task__expansion .expansion__body .expansion__body__label .expansion__body__file svg {
+  background-color: #c8c8c8;
+  color: #ffffff;
+  border-radius: 4px;
+  width: 2rem;
+  height: 2rem;
+}
+
+.task__expansion .expansion__body .expansion__body__label .expansion__body__file svg:hover {
+  cursor: pointer;
+  background-color: #00408b;
 }
 
 .task__expansion .expansion__body .expansion__body__label .expansion__body__file [type="file"] {
   display: none;
 }
 
-.task__expansion .expansion__body .expansion__body__date input {
+.task__expansion .expansion__body .expansion__body__deadline input {
   padding: 0.3rem 1rem;
   margin-left: 2rem;
   margin-bottom: 1rem;
@@ -172,11 +192,11 @@ body {
   outline-color: #b3d4fc;
 }
 
-.task__expansion .expansion__body .expansion__body__date input::-webkit-calendar-picker-indicator {
+.task__expansion .expansion__body .expansion__body__deadline input::-webkit-calendar-picker-indicator {
   outline: none;
 }
 
-.task__expansion .expansion__body .expansion__body__date input::-webkit-calendar-picker-indicator:hover {
+.task__expansion .expansion__body .expansion__body__deadline input::-webkit-calendar-picker-indicator:hover {
   cursor: pointer;
 }
 
