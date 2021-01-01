@@ -2,7 +2,7 @@
   "name": "react-todolist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/CJ-Yang0225/react-todolist",
+  "homepage": "https://cj-yang0225.github.io/react-todolist/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
