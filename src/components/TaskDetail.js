@@ -9,7 +9,7 @@ const TaskDetail = ({ expanded: isExpanded }) => {
           <FontAwesomeIcon icon={["far", "calendar-alt"]} />
           Deadline
         </label>
-        <div className="expansion__body__date">
+        <div className="expansion__body__deadline">
           <input type="date" name="date" className="date__input" />
           <input type="time" name="time" className="time__input" />
         </div>
