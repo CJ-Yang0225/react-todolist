@@ -25,6 +25,7 @@ body {
   list-style: none;
   overflow: scroll;
   overflow-x: hidden;
+  
 }
 
 .task__navbar {
@@ -122,9 +123,8 @@ body {
   }
 }
 
-.task__expansion {
-  font-size: 1.2rem;
-  // display: none;
+.task__detail {
+  font-size: 1.25rem;
   border: 2px solid $gray;
   border-top: 0;
   border-radius: 0.31rem;
@@ -134,61 +134,70 @@ body {
     display: block;
   }
 
-  .expansion__body {
+  svg {
+    height: 20px !important;
+    width: 20px !important;
+    margin-right: 0.25rem;
+  }
+
+  .detail__body {
     padding: 1.5rem 3rem;
     background-color: $light-gray;
     margin: auto;
     text-align: left;
 
-    .expansion__body__label {
+    .detail__body__label {
       display: block;
-
-      svg {
-        margin-right: 0.25rem;
-      }
-
-      .expansion__body__file {
-        margin-left: 2rem;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-
-        svg {
-          background-color: $gray;
-          color: #ffffff;
-          border-radius: 4px;
-          width: 2rem;
-          height: 2rem;
-
-          &:hover {
-            cursor: pointer;
-            background-color: $dark-blue;
-          }
-        }
-
-        [type="file"] {
-          display: none;
-        }
-      }
     }
 
-    .expansion__body__deadline input {
-      padding: 0.3rem 1rem;
+    .detail__body__file {
       margin-left: 2rem;
       margin-bottom: 1rem;
-      border: 0px;
-      border-radius: 5px;
-      outline-color: #b3d4fc;
+      display: flex;
+      align-items: center;
 
-      &::-webkit-calendar-picker-indicator {
-        outline: none;
+      svg {
+        background-color: $gray;
+        color: #ffffff;
+        border-radius: 4px;
+        width: 2rem !important;
+        height: 2rem !important;
+
         &:hover {
           cursor: pointer;
+          background-color: $dark-blue;
+        }
+      }
+
+      [type="file"] {
+        display: none;
+      }
+    }
+
+    .detail__body__deadline {
+      margin-left: 2rem;
+
+      input {
+        padding: 0.3rem 1rem;
+        margin-bottom: 1rem;
+        border: 0px;
+        border-radius: 5px;
+        outline-color: #b3d4fc;
+
+        &:last-child {
+          margin-left: 0.5rem;
+        }
+
+        &::-webkit-calendar-picker-indicator {
+          outline: none;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
 
-    .expansion__body__description {
+    .detail__body__description {
       margin-left: 2rem;
       width: 80%;
       max-width: fill-available;
@@ -205,7 +214,7 @@ body {
     }
   }
 
-  .expansion__footer {
+  .detail__footer {
     display: flex;
 
     button {

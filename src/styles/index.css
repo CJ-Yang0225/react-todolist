@@ -128,34 +128,36 @@ body {
   color: #4a90e2c8;
 }
 
-.task__expansion {
-  font-size: 1.2rem;
+.task__detail {
+  font-size: 1.25rem;
   border: 2px solid #c8c8c8;
   border-top: 0;
   border-radius: 0.31rem;
   margin-bottom: 0.5rem;
 }
 
-.task__expansion.is_expanded {
+.task__detail.is_expanded {
   display: block;
 }
 
-.task__expansion .expansion__body {
+.task__detail svg {
+  height: 20px !important;
+  width: 20px !important;
+  margin-right: 0.25rem;
+}
+
+.task__detail .detail__body {
   padding: 1.5rem 3rem;
   background-color: #f2f2f2;
   margin: auto;
   text-align: left;
 }
 
-.task__expansion .expansion__body .expansion__body__label {
+.task__detail .detail__body .detail__body__label {
   display: block;
 }
 
-.task__expansion .expansion__body .expansion__body__label svg {
-  margin-right: 0.25rem;
-}
-
-.task__expansion .expansion__body .expansion__body__label .expansion__body__file {
+.task__detail .detail__body .detail__body__file {
   margin-left: 2rem;
   margin-bottom: 1rem;
   display: -webkit-box;
@@ -166,41 +168,48 @@ body {
           align-items: center;
 }
 
-.task__expansion .expansion__body .expansion__body__label .expansion__body__file svg {
+.task__detail .detail__body .detail__body__file svg {
   background-color: #c8c8c8;
   color: #ffffff;
   border-radius: 4px;
-  width: 2rem;
-  height: 2rem;
+  width: 2rem !important;
+  height: 2rem !important;
 }
 
-.task__expansion .expansion__body .expansion__body__label .expansion__body__file svg:hover {
+.task__detail .detail__body .detail__body__file svg:hover {
   cursor: pointer;
   background-color: #00408b;
 }
 
-.task__expansion .expansion__body .expansion__body__label .expansion__body__file [type="file"] {
+.task__detail .detail__body .detail__body__file [type="file"] {
   display: none;
 }
 
-.task__expansion .expansion__body .expansion__body__deadline input {
-  padding: 0.3rem 1rem;
+.task__detail .detail__body .detail__body__deadline {
   margin-left: 2rem;
+}
+
+.task__detail .detail__body .detail__body__deadline input {
+  padding: 0.3rem 1rem;
   margin-bottom: 1rem;
   border: 0px;
   border-radius: 5px;
   outline-color: #b3d4fc;
 }
 
-.task__expansion .expansion__body .expansion__body__deadline input::-webkit-calendar-picker-indicator {
+.task__detail .detail__body .detail__body__deadline input:last-child {
+  margin-left: 0.5rem;
+}
+
+.task__detail .detail__body .detail__body__deadline input::-webkit-calendar-picker-indicator {
   outline: none;
 }
 
-.task__expansion .expansion__body .expansion__body__deadline input::-webkit-calendar-picker-indicator:hover {
+.task__detail .detail__body .detail__body__deadline input::-webkit-calendar-picker-indicator:hover {
   cursor: pointer;
 }
 
-.task__expansion .expansion__body .expansion__body__description {
+.task__detail .detail__body .detail__body__description {
   margin-left: 2rem;
   width: 80%;
   max-width: -webkit-fill-available;
@@ -215,18 +224,18 @@ body {
 }
 
 @media only screen and (max-width: 340px) {
-  .task__expansion .expansion__body {
+  .task__detail .detail__body {
     padding: 1rem 0rem;
   }
 }
 
-.task__expansion .expansion__footer {
+.task__detail .detail__footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.task__expansion .expansion__footer button {
+.task__detail .detail__footer button {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -239,20 +248,20 @@ body {
   outline-color: #b3d4fc;
 }
 
-.task__expansion .expansion__footer button:hover {
+.task__detail .detail__footer button:hover {
   cursor: pointer;
 }
 
-.task__expansion .expansion__footer button svg {
+.task__detail .detail__footer button svg {
   margin-right: 0.25rem;
 }
 
-.task__expansion .expansion__footer .cancel--danger {
+.task__detail .detail__footer .cancel--danger {
   color: #d0021b;
   background-color: #fff;
 }
 
-.task__expansion .expansion__footer .update--primary {
+.task__detail .detail__footer .update--primary {
   color: #fff;
   background-color: #4a90e2;
 }
