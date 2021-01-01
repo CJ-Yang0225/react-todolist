@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TaskDetail = ({ expanded: isExpanded }) => {
   return (
-    <div className="task__expansion" style={{ display: isExpanded ? '' : 'none' }}>
+    <div
+      className="task__expansion"
+      style={{ display: isExpanded ? "" : "none" }}
+    >
       <div className="expansion__body">
         <label className="expansion__body__label">
           <FontAwesomeIcon icon={["far", "calendar-alt"]} />
@@ -17,7 +20,10 @@ const TaskDetail = ({ expanded: isExpanded }) => {
           <FontAwesomeIcon icon={["far", "file"]} />
           File
         </label>
-        <label className="expansion__body__label">
+        <label
+          className="expansion__body__label"
+          style={{ display: "inline-block", height: "32px" }}
+        >
           <div className="expansion__body__file">
             <FontAwesomeIcon icon={["fas", "plus"]} />
             <input type="file" name="file" className="file__input" />
