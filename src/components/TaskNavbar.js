@@ -24,10 +24,18 @@ const TaskNavbar = () => {
       .concat(withActivatedTabClassList(isTabActive))
       .join(" ");
 
-    const handleClick = () => setActivatedTabIndex(index);
+    const handleClick = (e) => {
+      e.preventDefault();
+      setActivatedTabIndex(index);
+    };
 
     return (
-      <a key={index} href="/#" className={className} onClick={handleClick}>
+      <a
+        key={index}
+        href="/#"
+        className={className}
+        onClick={handleClick}
+      >
         {taskStatus}
       </a>
     );
