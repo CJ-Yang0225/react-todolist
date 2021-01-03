@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -129,15 +130,18 @@ body {
 }
 
 .task__detail {
+  display: none;
   font-size: 1.25rem;
-  border: 2px solid #c8c8c8;
+  border-left: 2px solid #c8c8c8;
   border-top: 0;
   border-radius: 0.31rem;
   margin-bottom: 0.5rem;
 }
 
-.task__detail.is_expanded {
+.task__detail--expanded {
   display: block;
+  -webkit-box-shadow: 3px 3px 3px 0px #a1a1a1;
+          box-shadow: 3px 3px 3px 0px #a1a1a1;
 }
 
 .task__detail svg {
@@ -168,7 +172,7 @@ body {
           align-items: center;
 }
 
-.task__detail .detail__body .detail__body__file svg {
+.task__detail .detail__body .detail__body__file button {
   background-color: #c8c8c8;
   color: #ffffff;
   border-radius: 4px;
@@ -176,7 +180,7 @@ body {
   height: 2rem !important;
 }
 
-.task__detail .detail__body .detail__body__file svg:hover {
+.task__detail .detail__body .detail__body__file button:hover {
   cursor: pointer;
   background-color: #00408b;
 }
@@ -225,7 +229,7 @@ body {
 
 @media only screen and (max-width: 340px) {
   .task__detail .detail__body {
-    padding: 1rem 0rem;
+    padding: 1rem 0.5rem;
   }
 }
 
@@ -261,8 +265,111 @@ body {
   background-color: #fff;
 }
 
-.task__detail .detail__footer .update--primary {
+.task__detail .detail__footer .save--primary {
   color: #fff;
   background-color: #4a90e2;
+}
+
+.task__card {
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+  background-color: #f2f2f2;
+  font-weight: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.task__card.star {
+  background-color: #fff2dc;
+}
+
+.task__card:hover {
+  -webkit-box-shadow: 3px 3px 3px 0 #a1a1a1;
+          box-shadow: 3px 3px 3px 0 #a1a1a1;
+}
+
+.task__card [type="checkbox"] {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 1rem;
+  color: #ffffff;
+  border: 2px solid #f2f2f2;
+  border-radius: 8px;
+  outline: 0;
+  background: #ffffff;
+}
+
+.task__card .card__edit__input {
+  width: 20%;
+  margin-right: 8px;
+  padding: 0.25rem;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.task__card .card__edit__input:disabled {
+  background-color: inherit;
+  border: 0;
+  outline: none;
+}
+
+.task__card .card__edit__input input:checked + input {
+  text-decoration: line-through;
+}
+
+.task__card p {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  font-size: 1.2rem;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 加省略符號 */
+  white-space: nowrap;
+  /* 強制不換行 */
+}
+
+.task__card .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.task__card .btnGroup button {
+  font-size: inherit;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 0.5rem;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background-color: inherit;
+  display: inline-block;
+}
+
+.task__card .btnGroup button:hover {
+  border-radius: 50%;
+  background-color: #c8c8c8;
+  cursor: pointer;
 }
 /*# sourceMappingURL=index.css.map */
