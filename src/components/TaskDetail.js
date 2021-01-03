@@ -1,23 +1,62 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TaskDetail = ({ expanded: isExpanded }) => {
+const TaskDetail = ({ title, expanded: isExpanded }) => {
+  const [latestTask, setLatestTask] = useState({
+    title,
+    date: "",
+    time: "",
+    message: "",
+  });
+
+  const handleTask = (event) => {
+    const target = event.target;
+
+    const inputValue = target.value;
+
+    const inputName = target.name;
+
+    setLatestTask({ ...latestTask, title, [inputName]: inputValue });
+  };
+
+  const submitLatestTask = () => {
+    setLatestTask({ ...latestTask, title });
+    localStorage.setItem("taskList", JSON.stringify(latestTask));
+  };
+
   return (
-    <div className="task__detail" style={{ display: isExpanded ? "" : "none" }}>
+    <div
+      className={`task__detail ${isExpanded ? "task__detail--expanded" : ""}`}
+    >
       <div className="detail__body">
         <label className="detail__body__label">
           <FontAwesomeIcon icon={["far", "calendar-alt"]} />
           Deadline
         </label>
         <div className="detail__body__deadline">
-          <input type="date" name="date" className="date__input" />
-          <input type="time" name="time" className="time__input" />
+          <input
+            type="date"
+            name="date"
+            className="date__input"
+            value={latestTask.date}
+            onChange={handleTask}
+          />
+          <input
+            type="time"
+            name="time"
+            className="time__input"
+            value={latestTask.time}
+            onChange={handleTask}
+          />
         </div>
         <label className="detail__body__label">
           <FontAwesomeIcon icon={["far", "file"]} />
           File
         </label>
-        <label className="detail__body__file" style={{display: "inline-block", height: 32}}>
+        <label
+          className="detail__body__file"
+          style={{ display: "inline-block", height: 32 }}
+        >
           <FontAwesomeIcon icon={["fas", "plus"]} />
           <input type="file" name="file" className="file__input" />
         </label>
@@ -29,6 +68,8 @@ const TaskDetail = ({ expanded: isExpanded }) => {
           name="message"
           className="detail__body__description"
           placeholder="Type your task here..."
+          value={latestTask.message}
+          onChange={handleTask}
         ></textarea>
       </div>
       <div className="detail__footer">
@@ -36,9 +77,9 @@ const TaskDetail = ({ expanded: isExpanded }) => {
           <FontAwesomeIcon icon={["fas", "times"]} />
           Cancel
         </button>
-        <button className="update--primary">
+        <button className="save--primary" onClick={submitLatestTask}>
           <FontAwesomeIcon icon={["fas", "plus"]} />
-          Update
+          Save
         </button>
       </div>
     </div>
