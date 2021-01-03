@@ -30,12 +30,7 @@ const TaskNavbar = () => {
     };
 
     return (
-      <a
-        key={index}
-        href="/#"
-        className={className}
-        onClick={handleClick}
-      >
+      <a key={index} href="/#" className={className} onClick={handleClick}>
         {taskStatus}
       </a>
     );
