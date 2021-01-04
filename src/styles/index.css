@@ -172,7 +172,7 @@ body {
           align-items: center;
 }
 
-.task__detail .detail__body .detail__body__file button {
+.task__detail .detail__body .detail__body__file svg {
   background-color: #c8c8c8;
   color: #ffffff;
   border-radius: 4px;
@@ -180,7 +180,7 @@ body {
   height: 2rem !important;
 }
 
-.task__detail .detail__body .detail__body__file button:hover {
+.task__detail .detail__body .detail__body__file svg:hover {
   cursor: pointer;
   background-color: #00408b;
 }
@@ -343,7 +343,7 @@ body {
   /* 強制不換行 */
 }
 
-.task__card .btnGroup {
+.task__card .widgetGroup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,7 +355,7 @@ body {
           flex: 1;
 }
 
-.task__card .btnGroup button {
+.task__card .widgetGroup button {
   font-size: inherit;
   height: 2.5rem;
   width: 2.5rem;
@@ -367,7 +367,7 @@ body {
   display: inline-block;
 }
 
-.task__card .btnGroup button:hover {
+.task__card .widgetGroup button:hover {
   border-radius: 50%;
   background-color: #c8c8c8;
   cursor: pointer;
