@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TaskDetail = ({ title, expanded: isExpanded }) => {
@@ -16,17 +16,23 @@ const TaskDetail = ({ title, expanded: isExpanded }) => {
 
     const inputName = target.name;
 
-    setLatestTask({ ...latestTask, title, [inputName]: inputValue });
+    setLatestTask((prevTasks) => ({...prevTasks, title, [inputName]:inputValue}))
   };
 
   const submitLatestTask = () => {
-    setLatestTask({ ...latestTask, title });
-    localStorage.setItem("taskList", JSON.stringify(latestTask));
+    const taskList = JSON.parse(localStorage.getItem('taskList')) || [];
+    taskList.push(latestTask);
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+    console.log(taskList);
   };
+
+  useEffect(()=> {
+    setLatestTask((prevTasks) => ({...prevTasks, title}));
+  }, [title])
 
   return (
     <div
-      className={`task__detail ${isExpanded ? "task__detail--expanded" : ""}`}
+      className={`task__detail${isExpanded ? " task__detail--expanded" : ""}`}
     >
       <div className="detail__body">
         <label className="detail__body__label">
