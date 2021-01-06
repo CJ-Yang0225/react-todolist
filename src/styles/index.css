@@ -86,7 +86,6 @@ body {
 
 .task__adder {
   position: relative;
-  height: 4rem;
   width: 100%;
   border-radius: 0.31rem;
   font-size: 1.5rem;
@@ -102,7 +101,7 @@ body {
 
 .task__adder .adder__input {
   width: inherit;
-  height: inherit;
+  height: 4rem;
   background-color: #ffffff;
   padding: 0 0 0 4.2rem;
   border: 2px solid #c8c8c8;
@@ -196,13 +195,10 @@ body {
 .task__detail .detail__body .detail__body__deadline input {
   padding: 0.3rem 1rem;
   margin-bottom: 1rem;
+  margin-right: 0.5rem;
   border: 0px;
   border-radius: 5px;
   outline-color: #b3d4fc;
-}
-
-.task__detail .detail__body .detail__body__deadline input:last-child {
-  margin-left: 0.5rem;
 }
 
 .task__detail .detail__body .detail__body__deadline input::-webkit-calendar-picker-indicator {
@@ -270,6 +266,10 @@ body {
   background-color: #4a90e2;
 }
 
+.star .fas {
+  color: #f5a623;
+}
+
 .task__card {
   font-size: 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -289,8 +289,8 @@ body {
           align-items: center;
 }
 
-.task__card.star {
-  background-color: #fff2dc;
+.task__card svg[data-icon="star"][data-prefix="fas"] {
+  color: #f5a623;
 }
 
 .task__card:hover {
@@ -325,7 +325,7 @@ body {
   outline: none;
 }
 
-.task__card .card__edit__input input:checked + input {
+.task__card input:checked + input {
   text-decoration: line-through;
 }
 
@@ -343,7 +343,14 @@ body {
   /* 強制不換行 */
 }
 
-.task__card .widgetGroup {
+.task__card .card__end {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.task__card .card__end .widgetGroup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,7 +362,7 @@ body {
           flex: 1;
 }
 
-.task__card .widgetGroup button {
+.task__card .card__end .widgetGroup button {
   font-size: inherit;
   height: 2.5rem;
   width: 2.5rem;
@@ -367,9 +374,13 @@ body {
   display: inline-block;
 }
 
-.task__card .widgetGroup button:hover {
+.task__card .card__end .widgetGroup button:hover {
   border-radius: 50%;
   background-color: #c8c8c8;
   cursor: pointer;
+}
+
+.task__card .deadlineInfo {
+  font-size: 0.9rem;
 }
 /*# sourceMappingURL=index.css.map */

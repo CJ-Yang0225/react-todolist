@@ -80,7 +80,6 @@ body {
 
 .task__adder {
   position: relative;
-  height: 4rem;
   width: 100%;
   border-radius: 0.31rem;
   font-size: 1.5rem;
@@ -95,7 +94,7 @@ body {
 
   .adder__input {
     width: inherit;
-    height: inherit;
+    height: 4rem;
     background-color: #ffffff;
     padding: 0 0 0 4.2rem;
     border: 2px solid $gray;
@@ -182,13 +181,11 @@ body {
       input {
         padding: 0.3rem 1rem;
         margin-bottom: 1rem;
+        margin-right: 0.5rem;
+
         border: 0px;
         border-radius: 5px;
         outline-color: #b3d4fc;
-
-        &:last-child {
-          margin-left: 0.5rem;
-        }
 
         &::-webkit-calendar-picker-indicator {
           outline: none;
@@ -250,6 +247,10 @@ body {
   }
 }
 
+.star .fas {
+  color: #f5a623;
+}
+
 .task__card {
   font-size: 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -262,8 +263,8 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  &.star {
-    background-color: #fff2dc;
+  svg[data-icon="star"][data-prefix="fas"] {
+    color: #f5a623;
   }
 
   &:hover {
@@ -296,10 +297,10 @@ body {
       border: 0;
       outline: none;
     }
+  }
 
-    input:checked + input {
-      text-decoration: line-through;
-    }
+  input:checked + input {
+    text-decoration: line-through;
   }
 
   p {
@@ -312,27 +313,36 @@ body {
     white-space: nowrap; /* 強制不換行 */
   }
 
-  .widgetGroup {
-    display: flex;
-    justify-content: space-evenly;
+  .card__end {
+    text-align: center;
     flex: 1;
 
-    button {
-      font-size: inherit;
-      height: 2.5rem;
-      width: 2.5rem;
-      margin-right: 0.5rem;
-      padding: 0;
-      border: 0;
-      outline: none;
-      background-color: inherit;
-      display: inline-block;
+    .widgetGroup {
+      display: flex;
+      justify-content: space-evenly;
+      flex: 1;
 
-      &:hover {
-        border-radius: 50%;
-        background-color: $gray;
-        cursor: pointer;
+      button {
+        font-size: inherit;
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 0.5rem;
+        padding: 0;
+        border: 0;
+        outline: none;
+        background-color: inherit;
+        display: inline-block;
+
+        &:hover {
+          border-radius: 50%;
+          background-color: $gray;
+          cursor: pointer;
+        }
       }
     }
+  }
+
+  .deadlineInfo {
+    font-size: 0.9rem;
   }
 }
