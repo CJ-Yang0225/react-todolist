@@ -1,80 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const defaultTabClassList = ["navbar__link"];
 const activatedTabClassList = ["navbar__link--active"];
-const taskStatuses = ["All Tasks", "Processing", "Completed"];
+const filterTypes = ["All", "Processing", "Completed"];
 
-/**
- * @param {boolean} isActive
- */
+const labelByFilterType = {
+  All: "All Tasks",
+  Processing: "Processing",
+  Completed: "Completed",
+};
+
 const withActivatedTabClassList = (isActive) =>
   isActive ? activatedTabClassList : [];
 
-const TaskNavbar = () => {
-  const [activatedTabIndex, setActivatedTabIndex] = useState(0);
+const TaskNavbar = ({
+  value: activatedFilterType,
+  onChange: emitChange,
+}) => {
+  const renderTab = (filterType, index) => {
+    const isActive = filterType === activatedFilterType;
 
-  /**
-   * @param {string} taskStatus
-   * @param {number} index
-   */
-  const toNavbarTab = (taskStatus, index) => {
-    const isTabActive = index === activatedTabIndex;
+    const label = labelByFilterType[filterType];
 
     const className = defaultTabClassList
-      .concat(withActivatedTabClassList(isTabActive))
+      .concat(withActivatedTabClassList(isActive))
       .join(" ");
 
-    const handleClick = (e) => {
-      e.preventDefault();
-      setActivatedTabIndex(index);
+    const handleClick = (event) => {
+      event.preventDefault();
+      emitChange(filterType);
     };
 
     return (
       <a key={index} href="/#" className={className} onClick={handleClick}>
-        {taskStatus}
+        {label}
       </a>
     );
   };
 
-  const navbarTabs = taskStatuses.map(toNavbarTab);
+  const tabs = filterTypes.map(renderTab);
 
   return (
     <nav className="task__navbar">
-      <div className="navbar__tabs">{navbarTabs}</div>
+      <div className="navbar__tabs">{tabs}</div>
     </nav>
   );
 };
-
-// const propsForNavbarTabs = [
-//   { id: 1, text: "All Tasks" },
-//   { id: 2, text: "Processing" },
-//   { id: 3, text: "Completed" },
-// ];
-
-// const TaskNavbar = () => {
-//   const [navbarID, setNavbarID] = useState(0);
-
-//   const categoryLinks = propsForNavbarTabs.map((link, index) => {
-//     const activeStyle = navbarID === index ? "navbar__link--active" : "";
-//     const className = ["navbar__link", activeStyle].join(" ");
-
-//     return (
-//       <a
-//         key={index}
-//         href="/#"
-//         className={className}
-//         onClick={() => setNavbarID(index)}
-//       >
-//         {link.text}
-//       </a>
-//     );
-//   });
-
-//   return (
-//     <nav className="task__navbar">
-//       <div className="navbar__tabs">{categoryLinks}</div>
-//     </nav>
-//   );
-// };
 
 export default TaskNavbar;
