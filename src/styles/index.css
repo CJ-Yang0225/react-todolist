@@ -192,9 +192,11 @@ body {
 }
 
 .task__detail .detail__body .detail__body__deadline input {
+  font-size: inherit;
   padding: 0.3rem 1rem;
   margin-bottom: 1rem;
   margin-right: 0.5rem;
+  height: 4vh;
   border: 0px;
   border-radius: 5px;
   outline-color: #b3d4fc;
