@@ -50,7 +50,7 @@ body {
         color: white;
       }
 
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 360px) {
         font-size: calc(10px + 2vmin);
       }
 
@@ -208,7 +208,7 @@ body {
       padding: 0.5rem 1rem;
     }
 
-    @media only screen and (max-width: 340px) {
+    @media only screen and (max-width: 360px) {
       padding: 1rem 0.5rem;
     }
   }
@@ -322,10 +322,10 @@ body {
   }
 
   .card__end {
-    margin:0 -1rem 0 0.5rem;
+    margin-left: 0.5rem;
     font-size: calc(8px + 1.5vmin);
-    text-align: center;
-    flex: 1;
+    display: flex;
+    flex-direction: column;
 
     .widgetGroup {
       display: flex;
