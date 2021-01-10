@@ -125,7 +125,6 @@ body {
 .task__detail {
   display: none;
   font-size: 1.25rem;
-  border-left: 2px solid $gray;
   border-top: 0;
   border-radius: 0.31rem;
   margin-bottom: 0.5rem;
@@ -263,12 +262,17 @@ body {
   justify-content: space-between;
   align-items: center;
 
+  &--editing {
+    border-radius: 0.3rem 0.3rem 0 0;
+    box-shadow: 3px 5px 3px 0 #a1a1a1;
+  }
+
   svg[data-icon="star"][data-prefix="fas"] {
     color: #f5a623;
   }
 
   &:hover {
-    box-shadow: 3px 3px 3px 0 #a1a1a1;
+    box-shadow: 3px 5px 3px 0 #a1a1a1;
   }
 
   [type="checkbox"] {
