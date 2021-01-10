@@ -21,9 +21,13 @@ const TaskCard = ({
     setIsEditing(false);
   };
 
+  const isEditingClassList = isEditing ? " task__card--editing" : "";
+
+  const isFavoriteClassList = taskForEdit.isFavorite ? " task__card--star" : "";
+
   return (
     <div className="task__cardList">
-      <li className={`task__card${isEditing ? " task__card--editing" : ""}`}>
+      <li className={`task__card${isEditingClassList + isFavoriteClassList}`}>
         <input
           type="checkbox"
           title="isDone"

@@ -51,7 +51,7 @@ body {
       }
 
       @media only screen and (max-width: 320px) {
-        font-size: calc(11px + 2vmin);
+        font-size: calc(10px + 2vmin);
       }
 
       &--active {
@@ -124,7 +124,7 @@ body {
 
 .task__detail {
   display: none;
-  font-size: 1.25rem;
+  font-size: calc(12px + 1vmin);
   border-top: 0;
   border-radius: 0.31rem;
   margin-bottom: 0.5rem;
@@ -252,7 +252,7 @@ body {
 }
 
 .task__card {
-  font-size: 1.5rem;
+  font-size: calc(12px + 1vmin);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   padding: 1.5rem 2rem;
@@ -262,6 +262,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &--star {
+    background-color: #fff2dc;
+  }
 
   &--editing {
     border-radius: 0.3rem 0.3rem 0 0;
@@ -280,7 +284,7 @@ body {
     // 若要自訂checkbox display: none; // Visibility: Hidden 或 Opacity: 0
     width: 1.8rem;
     height: 1.8rem;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     color: #ffffff;
     border: 2px solid #f2f2f2;
     border-radius: 8px;
@@ -294,7 +298,7 @@ body {
     padding: 0.25rem;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    font-size: 1.2rem;
+    font-size: inherit;
     font-weight: 700;
 
     &:disabled {
@@ -310,15 +314,16 @@ body {
 
   p {
     flex: 2;
-    font-size: 1.2rem;
+    font-size: inherit;
     margin: auto;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis; /* 加省略符號 */
-    white-space: nowrap; /* 強制不換行 */
   }
 
   .card__end {
+    margin:0 -1rem 0 0.5rem;
+    font-size: calc(8px + 1.5vmin);
     text-align: center;
     flex: 1;
 
@@ -329,8 +334,8 @@ body {
 
       button {
         font-size: inherit;
-        height: 2.5rem;
-        width: 2.5rem;
+        height: calc(16px + 2vmin);
+        width: calc(16px + 2vmin);
         margin-right: 0.5rem;
         padding: 0;
         border: 0;
@@ -348,6 +353,11 @@ body {
   }
 
   .deadlineInfo {
-    font-size: 0.9rem;
+    font-size: calc(8px + 1vmin);
+  }
+
+  @media only screen and (max-width: 360px) {
+    font-size: calc(8px + 1vmin);
+    padding: 1rem 0.5rem;
   }
 }

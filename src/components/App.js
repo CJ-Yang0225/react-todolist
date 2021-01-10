@@ -3,7 +3,26 @@ import TaskNavbar from "./TaskNavbar";
 import TaskCreateForm from "./TaskCreateForm";
 import TaskCard from "./TaskCard";
 
-const loadTasks = () => JSON.parse(localStorage.getItem("taskList")) || [];
+const demoTasks = [
+  {
+    title: "期末考",
+    date: "2021-01-13",
+    time: "08:10",
+    message: "讀書讀書讀書",
+    isDone: false,
+    isFavorite: true,
+  },
+  {
+    title: "洗衣服",
+    date: "2021-01-10",
+    time: "10:00",
+    message: "洗洗洗洗洗洗",
+    isDone: true,
+    isFavorite: false,
+  },
+];
+
+const loadTasks = () => JSON.parse(localStorage.getItem("taskList")) || demoTasks;
 
 const saveTasks = (tasks) =>
   localStorage.setItem("taskList", JSON.stringify(tasks));
@@ -11,7 +30,7 @@ const saveTasks = (tasks) =>
 const TaskFilter = {
   All: () => true,
   Processing: (task) => !task.isDone,
-  Completed: (task) => task.isDone
+  Completed: (task) => task.isDone,
 };
 
 const App = () => {
