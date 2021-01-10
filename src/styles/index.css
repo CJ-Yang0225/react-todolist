@@ -310,8 +310,8 @@ body {
 }
 
 .task__card [type="checkbox"] {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: calc(16px + 1vmin);
+  height: calc(16px + 1vmin);
   margin-right: 0.5rem;
   color: #ffffff;
   border: 2px solid #f2f2f2;

@@ -282,8 +282,8 @@ body {
 
   [type="checkbox"] {
     // 若要自訂checkbox display: none; // Visibility: Hidden 或 Opacity: 0
-    width: 1.8rem;
-    height: 1.8rem;
+    width: calc(16px + 1vmin);
+    height: calc(16px + 1vmin);
     margin-right: 0.5rem;
     color: #ffffff;
     border: 2px solid #f2f2f2;
