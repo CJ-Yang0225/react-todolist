@@ -9,7 +9,7 @@ const initialTask = {
   time: "",
   message: "",
   isDone: false,
-  isFavorite: false
+  isFavorite: false,
 };
 
 const TaskCreateForm = ({ onCreate: emitCreate }) => {
@@ -49,6 +49,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
         placeholder="Add Task"
         autoComplete="off"
         value={task.title}
+        onClick={toggleDetail}
         onChange={({ target: { value: title } }) =>
           setTask((task) => ({ ...task, title }))
         }
@@ -102,7 +103,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
           <textarea
             name="message"
             className="detail__body__description"
-            placeholder="Type your task here..."
+            placeholder="Type your task message here..."
             value={task.message}
             onChange={({ target: { value: message } }) =>
               setTask((task) => ({ ...task, message }))
