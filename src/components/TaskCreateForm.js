@@ -23,7 +23,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
 
   const handleCreate = () => {
     if (!isValidTask(task)) {
-      alert("請輸入 Task 和 Deadline");
+      alert("Please enter Task and Deadline");
       return;
     }
 
