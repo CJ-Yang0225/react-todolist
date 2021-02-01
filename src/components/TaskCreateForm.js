@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "./useForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const isValidTask = ({ title, date, time }) => title && date && time;
@@ -15,9 +16,9 @@ const initialTask = {
 const TaskCreateForm = ({ onCreate: emitCreate }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const [task, setTask] = useState(initialTask);
+  const [task, handleTask] = useForm(initialTask);
 
-  const resetTask = () => setTask(initialTask);
+  const resetTask = () => handleTask(initialTask);
 
   const toggleDetail = () => setIsExpanded((isExpanded) => !isExpanded);
 
@@ -50,9 +51,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
         autoComplete="off"
         value={task.title}
         onClick={toggleDetail}
-        onChange={({ target: { value: title } }) =>
-          setTask((task) => ({ ...task, title }))
-        }
+        onChange={handleTask}
       />
       <button className="adder__option border-0" onClick={toggleDetail}>
         <FontAwesomeIcon icon="ellipsis-v" />
@@ -71,18 +70,14 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
               name="date"
               className="date__input"
               value={task.date}
-              onChange={({ target: { value: date } }) =>
-                setTask((task) => ({ ...task, date }))
-              }
+              onChange={handleTask}
             />
             <input
               type="time"
               name="time"
               className="time__input"
               value={task.time}
-              onChange={({ target: { value: time } }) =>
-                setTask((task) => ({ ...task, time }))
-              }
+              onChange={handleTask}
             />
           </div>
           <label className="detail__body__label">
@@ -106,7 +101,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
             placeholder="Type your task message here..."
             value={task.message}
             onChange={({ target: { value: message } }) =>
-              setTask((task) => ({ ...task, message }))
+              handleTask((task) => ({ ...task, message }))
             }
           ></textarea>
         </div>
