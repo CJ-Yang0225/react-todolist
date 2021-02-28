@@ -3,15 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TaskCard = ({
   value: task,
-  onChange: emitChange,
-  onRemove: emitRemove
+  onUpdate: emitChange,
+  onRemove: emitRemove,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [taskForEdit, setTaskForEdit] = useState(task);
 
   useEffect(() => setTaskForEdit(task), [task]);
 
-  const handleChange = () => {
+  const handleUpdate = () => {
     emitChange(taskForEdit);
     setIsEditing(false);
   };
@@ -130,7 +130,7 @@ const TaskCard = ({
             <FontAwesomeIcon icon={["fas", "times"]} />
             Cancel
           </button>
-          <button className="save--primary" onClick={handleChange}>
+          <button className="save--primary" onClick={handleUpdate}>
             <FontAwesomeIcon icon={["fas", "check"]} />
             Update
           </button>

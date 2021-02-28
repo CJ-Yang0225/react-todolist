@@ -72,7 +72,7 @@ const App = () => {
             <TaskCard
               key={index}
               value={task}
-              onChange={setTask(index)}
+              onUpdate={setTask(index)}
               onRemove={removeTask(index)}
             />
           ))}
