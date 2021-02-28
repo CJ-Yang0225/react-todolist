@@ -315,8 +315,9 @@ body {
   p {
     flex: 2;
     font-size: inherit;
+    font-weight: 400;
     margin: auto;
-    text-align: center;
+    text-align: start;
     overflow: hidden;
     text-overflow: ellipsis; /* 加省略符號 */
   }

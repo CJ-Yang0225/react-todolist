@@ -8,17 +8,17 @@ const demoTasks = [
     title: "期末考",
     date: "2021-01-13",
     time: "08:10",
-    message: "讀書讀書讀書",
-    isDone: false,
-    isFavorite: true,
-  },
-  {
-    title: "洗衣服",
-    date: "2021-01-10",
-    time: "10:00",
-    message: "洗洗洗洗洗洗",
+    message: "資料庫系統、工程數學",
     isDone: true,
     isFavorite: false,
+  },
+  {
+    title: "Learning",
+    date: "2021-12-31",
+    time: "11:59",
+    message: "React, Next.js, GraphQL",
+    isDone: false,
+    isFavorite: true,
   },
 ];
 
