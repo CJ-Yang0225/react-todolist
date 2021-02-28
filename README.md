@@ -5,7 +5,6 @@
 
 - React.js
 - Hooks API: useEffect, useState
-- Custom hook
 - JavaScript ES5/ES6
 - HTML
 - CSS
