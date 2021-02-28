@@ -13,16 +13,25 @@ const demoTasks = [
     isFavorite: false,
   },
   {
+    title: "家務",
+    date: "2021-01-15",
+    time: "10:00",
+    message: "掃地、拖地、洗衣服",
+    isDone: false,
+    isFavorite: false,
+  },
+  {
     title: "Learning",
     date: "2021-12-31",
-    time: "11:59",
+    time: "23:59",
     message: "React, Next.js, GraphQL",
     isDone: false,
     isFavorite: true,
   },
 ];
 
-const loadTasks = () => JSON.parse(localStorage.getItem("taskList")) || demoTasks;
+const loadTasks = () =>
+  JSON.parse(localStorage.getItem("taskList")) || demoTasks;
 
 const saveTasks = (tasks) =>
   localStorage.setItem("taskList", JSON.stringify(tasks));
