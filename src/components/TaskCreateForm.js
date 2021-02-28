@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useForm } from "./useForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const isValidTask = ({ title, date, time }) => title && date && time;
@@ -16,15 +15,22 @@ const initialTask = {
 const TaskCreateForm = ({ onCreate: emitCreate }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const [task, handleTask] = useForm(initialTask);
+  const [task, setTask] = useState(initialTask);
 
-  const resetTask = () => handleTask(initialTask);
+  const resetTask = () => setTask(initialTask);
 
   const toggleDetail = () => setIsExpanded((isExpanded) => !isExpanded);
 
+  const handleChange = (event) => {
+    setTask((taskProps) => ({
+      ...taskProps,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
   const handleCreate = () => {
     if (!isValidTask(task)) {
-      alert("Please enter Task and Deadline");
+      alert("Please enter Task Title and Deadline");
       return;
     }
 
@@ -47,11 +53,11 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
         id="adder__input"
         name="title"
         className="adder__input"
-        placeholder="Add Task"
+        placeholder="Add Task Title"
         autoComplete="off"
         value={task.title}
-        onClick={toggleDetail}
-        onChange={handleTask}
+        onFocus={() => setIsExpanded(true)}
+        onChange={handleChange}
       />
       <button className="adder__option border-0" onClick={toggleDetail}>
         <FontAwesomeIcon icon="ellipsis-v" />
@@ -70,14 +76,14 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
               name="date"
               className="date__input"
               value={task.date}
-              onChange={handleTask}
+              onChange={handleChange}
             />
             <input
               type="time"
               name="time"
               className="time__input"
               value={task.time}
-              onChange={handleTask}
+              onChange={handleChange}
             />
           </div>
           <label className="detail__body__label">
@@ -100,9 +106,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
             className="detail__body__description"
             placeholder="Type your task message here..."
             value={task.message}
-            onChange={({ target: { value: message } }) =>
-              handleTask((task) => ({ ...task, message }))
-            }
+            onChange={handleChange}
           ></textarea>
         </div>
         <div className="detail__footer">
