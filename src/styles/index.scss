@@ -28,16 +28,16 @@ body {
   overflow-x: hidden;
 }
 
-.task__navbar {
+.task-navbar {
   background: #00aeff;
-  .navbar__tabs {
+  .task-navbar__tabs {
     max-width: 650px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 
-    .navbar__link {
+    .task-navbar__link {
       padding: 18px 0;
       color: $dark-blue;
       font-size: calc(12px + 2vmin);
@@ -78,13 +78,13 @@ body {
   background-color: inherit;
 }
 
-.task__adder {
+.task-creator {
   position: relative;
   width: 100%;
   border-radius: 0.31rem;
   font-size: 1.5rem;
 
-  .adder__label {
+  &__label {
     position: absolute;
     line-height: 1;
     left: 2rem;
@@ -92,7 +92,7 @@ body {
     color: $gray;
   }
 
-  .adder__input {
+  &__input {
     width: inherit;
     height: 4rem;
     background-color: #ffffff;
@@ -102,7 +102,7 @@ body {
     font: inherit;
   }
 
-  .adder__option {
+  &__option {
     position: absolute;
     height: 2rem;
     width: 2rem;
@@ -122,7 +122,7 @@ body {
   }
 }
 
-.task__detail {
+.task-detail {
   display: none;
   font-size: calc(12px + 1vmin);
   border-top: 0;
@@ -140,17 +140,17 @@ body {
     margin-right: 0.25rem;
   }
 
-  .detail__body {
+  .task-detail__body {
     padding: 1.5rem 3rem;
     background-color: $light-gray;
     margin: auto;
     text-align: left;
 
-    .detail__body__label {
+    .task-detail__label {
       display: block;
     }
 
-    .detail__body__file {
+    .task-detail__file {
       margin-left: 2rem;
       margin-bottom: 1rem;
       display: flex;
@@ -174,7 +174,7 @@ body {
       }
     }
 
-    .detail__body__deadline {
+    .task-detail__deadline {
       margin-left: 2rem;
 
       input {
@@ -196,7 +196,7 @@ body {
       }
     }
 
-    .detail__body__description {
+    .task-detail__description {
       margin-left: 2rem;
       width: 80%;
       max-width: fill-available;
@@ -213,7 +213,7 @@ body {
     }
   }
 
-  .detail__footer {
+  .task-detail__footer {
     display: flex;
 
     button {
@@ -235,14 +235,16 @@ body {
       }
     }
 
-    .cancel--danger {
-      color: #d0021b;
-      background-color: #fff;
-    }
+    .task-detail__action {
+      &--danger {
+        color: #d0021b;
+        background-color: #fff;
+      }
 
-    .save--primary {
-      color: #fff;
-      background-color: #4a90e2;
+      &--primary {
+        color: #fff;
+        background-color: #4a90e2;
+      }
     }
   }
 }
@@ -251,7 +253,11 @@ body {
   color: #f5a623;
 }
 
-.task__card {
+.task-card__wrapper {
+  width: 100%;
+}
+
+.task-card {
   font-size: calc(12px + 1vmin);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
@@ -292,7 +298,7 @@ body {
     background: #ffffff;
   }
 
-  .card__edit__input {
+  .task-card__edit {
     width: 20%;
     margin-right: 8px;
     padding: 0.25rem;
@@ -322,13 +328,13 @@ body {
     text-overflow: ellipsis; /* 加省略符號 */
   }
 
-  .card__end {
+  .task-card__end {
     margin-left: 0.5rem;
     font-size: calc(8px + 1.5vmin);
     display: flex;
     flex-direction: column;
 
-    .widgetGroup {
+    .widget-group {
       display: flex;
       justify-content: space-evenly;
       flex: 1;
@@ -353,7 +359,7 @@ body {
     }
   }
 
-  .deadlineInfo {
+  .deadline-info {
     font-size: calc(8px + 1vmin);
   }
 

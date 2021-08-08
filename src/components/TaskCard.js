@@ -21,13 +21,13 @@ const TaskCard = ({
     setIsEditing(false);
   };
 
-  const isEditingClassList = isEditing ? " task__card--editing" : "";
+  const isEditingClassList = isEditing ? " task-card--editing" : "";
 
-  const isFavoriteClassList = taskForEdit.isFavorite ? " task__card--star" : "";
+  const isFavoriteClassList = taskForEdit.isFavorite ? " task-card--star" : "";
 
   return (
-    <div className="task__cardList">
-      <li className={`task__card${isEditingClassList + isFavoriteClassList}`}>
+    <React.Fragment>
+      <li className={`task-card${isEditingClassList + isFavoriteClassList}`}>
         <input
           type="checkbox"
           title="isDone"
@@ -41,15 +41,15 @@ const TaskCard = ({
           title={taskForEdit.title}
           value={taskForEdit.title}
           name="title"
-          className="card__edit__input"
+          className="task-card__edit"
           onChange={({ target: { value: title } }) =>
             setTaskForEdit((task) => ({ ...task, title }))
           }
           disabled={!isEditing}
         />
         <p title={taskForEdit.message}>{taskForEdit.message}</p>
-        <div className="card__end">
-          <span className="widgetGroup">
+        <div className="task-card__end">
+          <span className="widget-group">
             <button
               title="Star Favorite"
               onClick={() =>
@@ -67,24 +67,24 @@ const TaskCard = ({
               <FontAwesomeIcon icon={["far", "trash-alt"]} />
             </button>
           </span>
-          <span className="deadlineInfo">
+          <span className="deadline-info">
             {taskForEdit.date} {taskForEdit.time}
           </span>
         </div>
       </li>
       <div
-        className={`task__detail${isEditing ? " task__detail--expanded" : ""}`}
+        className={`task-detail${isEditing ? " task-detail--expanded" : ""}`}
       >
-        <div className="detail__body">
-          <label className="detail__body__label">
+        <div className="task-detail__body">
+          <label className="task-detail__label">
             <FontAwesomeIcon icon={["far", "calendar-alt"]} />
             Deadline
           </label>
-          <div className="detail__body__deadline">
+          <div className="task-detail__deadline">
             <input
               type="date"
               name="date"
-              className="date__input"
+              className="task-detail__date"
               value={taskForEdit.date}
               onChange={({ target: { value: date } }) =>
                 setTaskForEdit((task) => ({ ...task, date }))
@@ -93,31 +93,31 @@ const TaskCard = ({
             <input
               type="time"
               name="time"
-              className="time__input"
+              className="task-detail__time"
               value={taskForEdit.time}
               onChange={({ target: { value: time } }) =>
                 setTaskForEdit((task) => ({ ...task, time }))
               }
             />
           </div>
-          <label className="detail__body__label">
+          <label className="task-detail__label">
             <FontAwesomeIcon icon={["far", "file"]} />
             File
           </label>
           <label
-            className="detail__body__file"
+            className="task-detail__file"
             style={{ display: "inline-block", height: 32 }}
           >
             <FontAwesomeIcon icon={["fas", "plus"]} />
             <input type="file" name="file" className="file__input" />
           </label>
-          <label className="detail__body__label">
+          <label className="task-detail__label">
             <FontAwesomeIcon icon={["far", "comment-dots"]} />
             Message
           </label>
           <textarea
             name="message"
-            className="detail__body__description"
+            className="task-detail__description"
             placeholder="Type your task here..."
             value={taskForEdit.message}
             onChange={({ target: { value: message } }) =>
@@ -125,18 +125,24 @@ const TaskCard = ({
             }
           ></textarea>
         </div>
-        <div className="detail__footer">
-          <button className="cancel--danger" onClick={handleCancel}>
+        <div className="task-detail__footer">
+          <button
+            className="task-detail__action--danger"
+            onClick={handleCancel}
+          >
             <FontAwesomeIcon icon={["fas", "times"]} />
             Cancel
           </button>
-          <button className="save--primary" onClick={handleUpdate}>
+          <button
+            className="task-detail__action--primary"
+            onClick={handleUpdate}
+          >
             <FontAwesomeIcon icon={["fas", "check"]} />
             Update
           </button>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

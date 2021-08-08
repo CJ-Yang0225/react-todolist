@@ -1,7 +1,7 @@
 import React from "react";
 
-const defaultTabClassList = ["navbar__link"];
-const activatedTabClassList = ["navbar__link--active"];
+const defaultTabClassList = ["task-navbar__link"];
+const activatedTabClassList = ["task-navbar__link--active"];
 const filterTypes = ["All", "Processing", "Completed"];
 
 const labelByFilterType = {
@@ -41,8 +41,8 @@ const TaskNavbar = ({
   const tabs = filterTypes.map(renderTab);
 
   return (
-    <nav className="task__navbar">
-      <div className="navbar__tabs">{tabs}</div>
+    <nav className="task-navbar">
+      <div className="task-navbar__tabs">{tabs}</div>
     </nav>
   );
 };

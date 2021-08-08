@@ -36,6 +36,7 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
 
     emitCreate(task);
     resetTask();
+    setIsExpanded(false);
   };
 
   const handleCancel = () => {
@@ -44,77 +45,85 @@ const TaskCreateForm = ({ onCreate: emitCreate }) => {
   };
 
   return (
-    <div className="task__adder">
-      <label htmlFor="adder__input" className="adder__label border-0">
+    <div className="task-creator">
+      <label
+        htmlFor="task-creator__input"
+        className="task-creator__label border-0"
+      >
         <FontAwesomeIcon icon="plus" />
       </label>
       <input
         type="text"
-        id="adder__input"
         name="title"
-        className="adder__input"
+        className="task-creator__input"
         placeholder="Add Task Title"
         autoComplete="off"
         value={task.title}
         onFocus={() => setIsExpanded(true)}
         onChange={handleChange}
       />
-      <button className="adder__option border-0" onClick={toggleDetail}>
+      <button className="task-creator__option border-0" onClick={toggleDetail}>
         <FontAwesomeIcon icon="ellipsis-v" />
       </button>
       <div
-        className={`task__detail${isExpanded ? " task__detail--expanded" : ""}`}
+        className={`task-detail${isExpanded ? " task-detail--expanded" : ""}`}
       >
-        <div className="detail__body">
-          <label className="detail__body__label">
+        <div className="task-detail__body">
+          <label className="task-detail__label">
             <FontAwesomeIcon icon={["far", "calendar-alt"]} />
             Deadline
           </label>
-          <div className="detail__body__deadline">
+          <div className="task-detail__deadline">
             <input
               type="date"
               name="date"
-              className="date__input"
+              className="task-detail__date"
               value={task.date}
               onChange={handleChange}
             />
             <input
               type="time"
               name="time"
-              className="time__input"
+              className="task-detail__input"
               value={task.time}
               onChange={handleChange}
             />
           </div>
-          <label className="detail__body__label">
+          <label className="task-detail__label">
             <FontAwesomeIcon icon={["far", "file"]} />
             File
           </label>
           <label
-            className="detail__body__file"
+            className="task-detail__file"
             style={{ display: "inline-block", height: 32 }}
           >
             <FontAwesomeIcon icon={["fas", "plus"]} />
             <input type="file" name="file" className="file__input" />
           </label>
-          <label className="detail__body__label">
+          <label className="task-detail__label">
             <FontAwesomeIcon icon={["far", "comment-dots"]} />
             Message
           </label>
           <textarea
             name="message"
-            className="detail__body__description"
+            className="task-detail__description"
             placeholder="Type your task message here..."
             value={task.message}
             onChange={handleChange}
           ></textarea>
         </div>
-        <div className="detail__footer">
-          <button className="cancel--danger" onClick={handleCancel}>
+        <div className="task-detail__footer">
+          <button
+            className="task-detail__action--danger"
+            onClick={handleCancel}
+          >
             <FontAwesomeIcon icon={["fas", "times"]} />
             Cancel
           </button>
-          <button className="save--primary" onClick={handleCreate}>
+          <button
+            className="task-detail__action--primary"
+            onClick={handleCreate}
+          >
             <FontAwesomeIcon icon={["fas", "plus"]} />
             Save
           </button>
