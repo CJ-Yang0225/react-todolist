@@ -4,7 +4,7 @@ React practice app created by Create React App
 
 [App Demo](https://cj-yang0225.github.io/react-todolist/)
 
-## Technology/Package
+## Technologies/Packages
 
 - React.js
 - Hooks API: useEffect, useState
@@ -14,4 +14,4 @@ React practice app created by Create React App
 - Functional Programming
 - HTML
 - SCSS (BEM Naming)
-- gh-pages
+- [gh-pages](https://github.com/tschaub/gh-pages)
