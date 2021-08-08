@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
-import "./styles/index.min.css";
+import "./styles/index.scss";
 import App from './components/App';
 
 library.add(fas, far);
