@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { animated, useSpringRef, useTransition, useChain } from "react-spring";
 import TaskNavbar from "./TaskNavbar";
 import TaskCreateForm from "./TaskCreateForm";
@@ -57,25 +57,29 @@ const App = () => {
   const removeTask = (indexForRemove) => () =>
     setTasks((tasks) => tasks.filter((_, index) => index !== indexForRemove));
 
-  const filteredTasks = tasks
-    .map((task, index) => [task, index])
-    .filter(([task]) => TaskFilter[taskFilterType](task))
-    .sort(([taskA], [taskB]) => taskB.isFavorite - taskA.isFavorite)
-    .map(([task, index]) => (
-      <TaskCard
-        key={index}
-        value={task}
-        onUpdate={setTask(index)}
-        onRemove={removeTask(index)}
-      />
-    ));
+  const filteredTasks = useMemo(
+    () =>
+      tasks
+        .map((task, index) => [task, index])
+        .filter(([task]) => TaskFilter[taskFilterType](task))
+        .sort(([taskA], [taskB]) => taskB.isFavorite - taskA.isFavorite)
+        .map(([task, index]) => (
+          <TaskCard
+            key={index}
+            value={task}
+            onUpdate={setTask(index)}
+            onRemove={removeTask(index)}
+          />
+        )),
+    [taskFilterType, tasks]
+  );
 
   const tasksRef = useSpringRef();
 
   const transitionTasks = useTransition(filteredTasks, {
     ref: tasksRef,
     keys: new Array(filteredTasks.length).fill().map((_, index) => index),
-    trail: 500 / filteredTasks.length,
+    trail: 500 / tasks.length,
     from: { opacity: 0, scale: 0 },
     enter: { opacity: 1, scale: 1 },
     leave: { opacity: 0, scale: 0 },
