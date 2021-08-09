@@ -7,7 +7,7 @@ React practice app created by Create React App
 ## Technologies/Packages
 
 - React.js
-- Hooks API: useEffect, useState
+- Hooks API: useEffect, useState, useMemo
 - [react-spring](https://react-spring.io/)
 - [react-fontawesome](https://fontawesome.com/)
 - JavaScript ES5/ES6
